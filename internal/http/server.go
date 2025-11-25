@@ -18,14 +18,14 @@ import (
 
 type Server struct {
 	Store    *redisstore.Store
-	Producer kafka.Producer
+	Producer *kafka.Producer
 	validate *validator.Validate
 
 	mu            sync.RWMutex
 	driverStreams map[string]chan []byte
 }
 
-func NewServer(store *redisstore.Store, prod kafka.Producer) *Server {
+func NewServer(store *redisstore.Store, prod *kafka.Producer) *Server {
 	return &Server{
 		Store:         store,
 		Producer:      prod,
