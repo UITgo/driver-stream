@@ -57,7 +57,7 @@ func main() {
 	}
 
 	// === gRPC server ===
-	grpcServer, lis, err := grpcsrv.New(grpcAddr)
+	grpcServer, lis, err := grpcsrv.New(grpcAddr, store, prod)
 	if err != nil {
 		log.Fatal(err)
 	}
